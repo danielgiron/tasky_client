@@ -18,9 +18,13 @@ function App() {
   const [userID, setUser] = useState(
     JSON.parse(localStorage.getItem("userID"))
   );
+  const [sessionID, setSessionID] = useState(
+    JSON.parse(localStorage.getItem("sessionID"))
+  );
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("userID")));
+    setSessionID(JSON.parse(localStorage.getItem("sessionID")));
   }, []);
 
   return (

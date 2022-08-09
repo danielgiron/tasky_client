@@ -28,7 +28,7 @@ function Login(props) {
       .then((res) => {
         // console.log(res.data._id);
         // dispatch(setUser(res.data));
-        console.log(res.data);
+        // console.log(res.data);
         localStorage.setItem("userID", JSON.stringify(res.data._id));
         setUser(JSON.parse(localStorage.getItem("userID")));
       })
@@ -42,7 +42,7 @@ function Login(props) {
 
     const endpoint = `${backendBaseURL}/users/signin`;
     const body = {
-      username: e.target.email.value,
+      email: e.target.email.value,
       password: e.target.password.value,
     };
 
