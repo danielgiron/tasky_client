@@ -96,29 +96,6 @@
   filter: drop-shadow(4px 4px 5px #434c5457);
 }
 
-#topLeft {
-  position: absolute;
-  display: none;
-  top: -2px;
-  left: -2px;
-  mix-blend-mode: screen;
-  height: 90%;
-  filter: brightness(1.7);
-  border-radius: 2.3rem 0 0 2.3rem;
-}
-
-#bottomRight {
-  position: absolute;
-  display: none;
-  bottom: -2px;
-  right: -2px;
-  mix-blend-mode: multiply;
-  height: 70%;
-  filter: brightness(1) hue-rotate(20deg);
-  opacity: 0.4;
-  border-radius: 2.3rem 0 0 2.3rem;
-}
-
 /********************* LOGIN / SIGN IN FORMS *******************/
 
 .Login .formsContainer {
@@ -206,6 +183,12 @@
   font-size: 0.8rem;
   align-self: center;
   width: 100%;
+}
+
+.formsContainer .errorLine {
+  color: #ff5252;
+  font-size: 0.8rem;
+  /* margin-top: 0.5rem; */
 }
 
 .formsContainer > div button {
