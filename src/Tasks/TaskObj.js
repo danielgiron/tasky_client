@@ -32,10 +32,8 @@ function TaskObj(props) {
           completed: !completed,
         })
         .then((res) => {
-          // setTimeout(() => {
           setIsLoading(false);
           setCompleted(!completed);
-          // }, 500); // timeout just because I like looking at the loading animation sorry
         })
         .catch((err) => {
           console.log(err);

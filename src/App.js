@@ -18,13 +18,9 @@ function App() {
   const [userID, setUser] = useState(
     JSON.parse(localStorage.getItem("userID"))
   );
-  const [sessionID, setSessionID] = useState(
-    JSON.parse(localStorage.getItem("sessionID"))
-  );
 
   useEffect(() => {
     setUser(JSON.parse(localStorage.getItem("userID")));
-    setSessionID(JSON.parse(localStorage.getItem("sessionID")));
   }, []);
 
   return (
@@ -63,12 +59,10 @@ function App() {
       </Routes>
 
       <div className="background">
-        {/* {userID ? ( */}
         <div className="blobsContainer">
           <div className="blob1">{blob1}</div>
           <div className="blob2">{blob2}</div>
         </div>
-        {/* ) : null}*/}
       </div>
     </div>
   );
