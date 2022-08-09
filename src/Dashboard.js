@@ -21,7 +21,10 @@ function Dashboard(props) {
   useEffect(() => {
     const getUserData = async () => {
       await axios
-        .post(`${backendBaseURL}/users/poll`, { userID: user })
+        .post(`${backendBaseURL}/users/poll`, {
+          userID: user,
+          session: userData.session,
+        })
         .then((res) => {
           dispatch(setUserData(res.data));
           // console.log("userData:", res.data);
@@ -32,14 +35,17 @@ function Dashboard(props) {
     };
 
     getUserData();
+    const intervalID = setInterval(getUserData, 5000);
+    return () => clearInterval(intervalID);
   }, []);
 
   const handleLogout = async (e) => {
     await axios
-      .post(`${backendBaseURL}/users/logout`)
+      .post(`${backendBaseURL}/users/logout`, { userID: userData._id })
       .then((res) => {
         // console.log("user logged out");
         localStorage.removeItem("userID");
+        localStorage.removeItem("sessionID");
         dispatch(setUserData(null));
         setUser(null);
       })
