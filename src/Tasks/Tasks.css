@@ -78,7 +78,8 @@
   /* overflow: hidden; */
 
   margin: 0;
-  padding: 0;
+  padding: 0 0.1rem;
+
   /* transition: all 200ms; */
 }
 
