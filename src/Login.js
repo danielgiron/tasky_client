@@ -87,14 +87,14 @@ function Login(props) {
           <div className="Card">
             <i className="fa-solid fa-users"></i>
             Invite friends to join you on Tasky! Once added, you'll recieve
-            notifications of your new Tasky contacts and any tasks they share.
-            Look for new contacts and visit their profiles too!
+            notifications of your new Tasky contact and any tasks they share.
+            Search for new contacts and visit their profiles too!
           </div>
           <div className="Card">
             <i className="fa-solid fa-comments"></i>
-            Have a question or want to chat? Use the chat feature to communicate
-            anyone on Tasky to discuss tasks, projects, or where to go for lunch
-            next.
+            Have a question or just want to chat? Use the chat feature to
+            communicate with anyone on Tasky to discuss tasks, projects, or
+            where to go for lunch next!
           </div>
         </div>
       </div>
