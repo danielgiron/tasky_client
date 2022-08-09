@@ -1,7 +1,7 @@
 import { Outlet, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setUserData } from "./features/TaskSlice";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { backendBaseURL } from "./Utils/UtilFunctions";
 import axios from "axios";
 import Notifications from "./Notifications/Notifications";
@@ -11,23 +11,37 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 function Dashboard(props) {
-  const { user, setUser, sessionID, setSessionID } = props; // for saving in local storage
+  const { user, setUser } = props; // for saving in local storage
   const userData = useSelector((state) => state.tasks.userData); // for saving in redux store
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [mobileMenuIsActive, setMobileMenuIsActive] = useState(false);
 
+  useEffect(() => {
+    const getUserData = async () => {
+      await axios
+        .post(`${backendBaseURL}/users/poll`, { userID: user })
+        .then((res) => {
+          dispatch(setUserData(res.data));
+          // console.log("userData:", res.data);
+        })
+        .catch((e) => {
+          console.log("User data not found:", e);
+        });
+    };
+
+    getUserData();
+  }, []);
+
   const handleLogout = async (e) => {
     await axios
-      .post(`${backendBaseURL}/users/logout`, { userID: userData._id })
+      .post(`${backendBaseURL}/users/logout`)
       .then((res) => {
         // console.log("user logged out");
         localStorage.removeItem("userID");
-        localStorage.removeItem("sessionID");
         dispatch(setUserData(null));
         setUser(null);
-        setSessionID(null);
       })
       .catch((e) => {
         // console.log("error logging out");
