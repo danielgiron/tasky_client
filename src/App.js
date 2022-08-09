@@ -22,10 +22,10 @@ function App() {
   const dispatch = useDispatch();
 
   const [userID, setUser] = useState(
-    JSON.parse(localStorage.getItem("userID"))
+    JSON.parse(localStorage.getItem("userID")) || ""
   );
   const [sessionID, setSessionID] = useState(
-    JSON.parse(localStorage.getItem("sessionID"))
+    JSON.parse(localStorage.getItem("sessionID")) || ""
   );
 
   useEffect(() => {
