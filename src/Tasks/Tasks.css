@@ -75,12 +75,10 @@
   background-color: transparent;
   height: 25px;
   cursor: pointer;
-  overflow: hidden;
+  /* overflow: hidden; */
 
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  margin: 0;
+  padding: 0;
   /* transition: all 200ms; */
 }
 
