@@ -21,11 +21,18 @@ function App() {
   const userData = useSelector((state) => state.tasks.userData); // for saving in redux store
   const dispatch = useDispatch();
 
+  const [userID, setUser] = useState(
+    JSON.parse(localStorage.getItem("userID"))
+  );
+  const [sessionID, setSessionID] = useState(
+    JSON.parse(localStorage.getItem("sessionID"))
+  );
+
   useEffect(() => {
     const getUserData = async () => {
       await axios
         .post(`${backendBaseURL}/users/poll`, {
-          userID: user, // user and sessionID are passed in as props
+          userID: userID, // user and sessionID are passed in as props
           session: sessionID,
         })
         .then((res) => {
@@ -39,20 +46,20 @@ function App() {
         });
     };
 
-    getUserData();
+    if (userID && sessionID) {
+      getUserData();
+    }
   }, []);
-
-  const [userID, setUser] = useState(
-    JSON.parse(localStorage.getItem("userID"))
-  );
-  const [sessionID, setSessionID] = useState(
-    JSON.parse(localStorage.getItem("sessionID"))
-  );
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("userID")));
-    setSessionID(JSON.parse(localStorage.getItem("sessionID")));
-  }, []);
+    // setUser(JSON.parse(localStorage.getItem("userID")));
+    // setSessionID(JSON.parse(localStorage.getItem("sessionID")));
+
+    setUser(userdata._id);
+    setSessionID(userdata.session);
+    localStorage.setItem("userID", userdata._id);
+    localStorage.setItem("sessionID", userdata.session);
+  }, [userData]);
 
   return (
     <div className="App">
