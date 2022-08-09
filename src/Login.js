@@ -28,6 +28,7 @@ function Login(props) {
       .then((res) => {
         // console.log(res.data._id);
         // dispatch(setUser(res.data));
+        console.log(res.data);
         localStorage.setItem("userID", JSON.stringify(res.data._id));
         setUser(JSON.parse(localStorage.getItem("userID")));
       })

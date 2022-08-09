@@ -1,6 +1,7 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { backendBaseURL } from "../Utils/UtilFunctions";
 import axios from "axios";
 // import './NotificationObj.css'
 
@@ -11,7 +12,7 @@ function NotificationObj(props) {
   const [isDeleting, setIsDeleting] = useState(false);
 
   async function deleteNotification(notif_ID) {
-    const endpoint = `http://localhost:3001/users/deleteNotification`;
+    const endpoint = `${backendBaseURL}/users/deleteNotification`;
     const body = { notif_ID, userID };
     axios
       .post(endpoint, body)

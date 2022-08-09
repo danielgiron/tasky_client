@@ -49,8 +49,8 @@ export function getDefaultDate() {
 }
 
 // used in Profile.js and SearchBar.js to open a new or existing thread
-export async function openMessages(userID, profileID, navigate) {
-  const endpoint = `http://localhost:3001/threads/findByProfileID`;
+export async function openMessages(userID, profileID, navigate, endpoint) {
+  // const endpoint = `http://localhost:3001/threads/findByProfileID`;
   const body = { userID, profileID };
   axios
     .post(endpoint, body)

@@ -95,7 +95,7 @@ function SearchBar(props) {
             className="messagesButton"
             onClick={() => {
               // imported from UtilFunctions.js
-              openMessages(userData._id, user._id, navigate);
+              openMessages(userData._id, user._id, navigate, backendBaseURL);
             }}
           >
             Message

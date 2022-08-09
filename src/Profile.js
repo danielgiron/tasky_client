@@ -95,7 +95,8 @@ function Profile(props) {
                     openMessages(
                       userData._id,
                       profileData.profile._id,
-                      navigate
+                      navigate,
+                      backendBaseURL
                     );
                   }}
                 >

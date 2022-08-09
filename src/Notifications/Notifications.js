@@ -1,6 +1,7 @@
 //import { BrowserRouter, Route, Routes, Link, useParams } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { backendBaseURL } from "../Utils/UtilFunctions";
 import axios from "axios";
 import "./Notifications.css";
 import NotificationObj from "./NotificationObj";
@@ -11,7 +12,7 @@ function Notifications(props) {
 
   useEffect(() => {
     if (userData && userData._id) {
-      const endpoint = "http://localhost:3001/users/getNotifications";
+      const endpoint = `${backendBaseURL}/users/getNotifications`;
       const body = { userID: userData._id };
 
       async function getNotifications() {
