@@ -60,6 +60,7 @@ function Login(props) {
         if (res.data.error) {
           setSignInErrorMsg(res.data.error);
         } else {
+          console.log(res.data);
           localStorage.setItem("userID", JSON.stringify(res.data._id));
           setUser(JSON.parse(localStorage.getItem("userID")));
         }
