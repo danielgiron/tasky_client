@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import "./App.css";
 import { blob1, blob2 } from "./Blobs";
+import { backendBaseURL } from "./Utils/UtilFunctions";
 
 import Login from "./Login";
 import Main from "./Main";
