@@ -57,8 +57,13 @@ function App() {
 
     setUser(userData._id);
     setSessionID(userData.session);
-    localStorage.setItem("userID", userData._id);
-    localStorage.setItem("sessionID", userData.session);
+    if (!userData?._id || !userData?.session) {
+      localStorage.setItem("userID", "");
+      localStorage.setItem("sessionID", "");
+    } else {
+      localStorage.setItem("userID", userData._id);
+      localStorage.setItem("sessionID", userData.session);
+    }
   }, [userData]);
 
   return (
