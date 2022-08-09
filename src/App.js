@@ -55,10 +55,10 @@ function App() {
     // setUser(JSON.parse(localStorage.getItem("userID")));
     // setSessionID(JSON.parse(localStorage.getItem("sessionID")));
 
-    setUser(userdata._id);
-    setSessionID(userdata.session);
-    localStorage.setItem("userID", userdata._id);
-    localStorage.setItem("sessionID", userdata.session);
+    setUser(userData._id);
+    setSessionID(userData.session);
+    localStorage.setItem("userID", userData._id);
+    localStorage.setItem("sessionID", userData.session);
   }, [userData]);
 
   return (
