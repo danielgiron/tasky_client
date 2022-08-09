@@ -1,6 +1,7 @@
 import "./Login.css";
 import axios from "axios";
 import { backendBaseURL } from "./Utils/UtilFunctions";
+import { useState } from "react";
 // import { useSelector, useDispatch } from "react-redux";
 
 axios.defaults.withCredentials = true;
@@ -9,6 +10,8 @@ axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
 axios.defaults.xsrfCookieName = "csrftoken";
 
 function Login(props) {
+  const [signInErrorMsg, setSignInErrorMsg] = useState(null);
+  const [signUpErrorMsg, setSignUpErrorMsg] = useState(null);
   const { setUser } = props;
   // const user = useSelector((state) => state.user.user);
   // const dispatch = useDispatch();
@@ -29,8 +32,12 @@ function Login(props) {
         // console.log(res.data._id);
         // dispatch(setUser(res.data));
         // console.log(res.data);
-        localStorage.setItem("userID", JSON.stringify(res.data._id));
-        setUser(JSON.parse(localStorage.getItem("userID")));
+        if (res.data.error) {
+          setSignUpErrorMsg(res.data.error);
+        } else {
+          localStorage.setItem("userID", JSON.stringify(res.data._id));
+          setUser(JSON.parse(localStorage.getItem("userID")));
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -50,8 +57,12 @@ function Login(props) {
       .post(endpoint, body)
       .then((res) => {
         // console.log(res.data._id);
-        localStorage.setItem("userID", JSON.stringify(res.data._id));
-        setUser(JSON.parse(localStorage.getItem("userID")));
+        if (res.data.error) {
+          setSignInErrorMsg(res.data.error);
+        } else {
+          localStorage.setItem("userID", JSON.stringify(res.data._id));
+          setUser(JSON.parse(localStorage.getItem("userID")));
+        }
       })
       .catch((e) => {
         console.log(e);
@@ -109,7 +120,9 @@ function Login(props) {
                 required
               />
             </div>
-
+            <div className="errorLine">
+              {signUpErrorMsg ? signUpErrorMsg : ""}
+            </div>
             <button>Sign Up</button>
           </form>
         </div>
@@ -131,7 +144,9 @@ function Login(props) {
                 required
               />
             </div>
-
+            <div className="errorLine">
+              {signInErrorMsg ? signInErrorMsg : ""}
+            </div>
             <button>Sign In</button>
           </form>
         </div>
