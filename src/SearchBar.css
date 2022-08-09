@@ -1,0 +1,146 @@
+.SearchContainer {
+  position: relative;
+}
+
+.SearchBar input {
+  position: relative;
+  border: 1px solid lightgrey;
+  width: calc(100% - 1rem - 2px);
+  padding: 0.5rem;
+}
+
+.SearchBar input:focus {
+  outline: none;
+}
+
+.SearchResultsContainer {
+  position: absolute;
+  top: 100%;
+  width: calc(100% - 0.5rem - 2px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(255, 255, 255);
+
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  text-transform: capitalize;
+
+  z-index: 2;
+}
+
+.SearchResultEntry {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem;
+  /* cursor: pointer; */
+
+  font-size: 0.8rem;
+  height: 25px;
+}
+
+.SearchResultEntry:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.SearchResultEntry .userInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  padding: 0.25rem;
+  background-color: transparent;
+  border-radius: 2rem;
+
+  cursor: pointer;
+}
+
+.SearchResultEntry .userInfo:hover::after {
+  content: "Go to Profile >>";
+  font-style: italic;
+  color: #56a552;
+}
+
+.userInfo span.name {
+  text-transform: capitalize;
+}
+
+.userInfo span.email,
+.SearchResultsContainer span.emptyResults {
+  text-transform: lowercase;
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+.actions {
+  display: none;
+}
+
+.SearchResultEntry:hover .actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  height: 25px;
+  /* border-radius: 5px; */
+  cursor: pointer;
+}
+
+.actions button:hover {
+  border: 1px solid rgb(54, 54, 54);
+  background-color: rgb(240, 240, 240);
+}
+
+/*///////////////////////////////////   MOBILE   ///////////////////////////////*/
+
+@media (max-width: 1000px) {
+  .SearchResultEntry .userInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 5px;
+  }
+
+  .SearchResultEntry .userInfo:hover::after {
+    display: none;
+  }
+
+  .userInfo span.name {
+    font-size: 0.9rem;
+  }
+
+  .userInfo span.email {
+    font-size: 0.6rem;
+  }
+
+  /* .actions {
+    display: block;
+  } */
+
+  /* .SearchResultEntry:hover .actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .actions button {
+    font-size: 0.6rem;
+    height: 25px;
+    /* border-radius: 5px; */
+    cursor: pointer;
+  }
+}

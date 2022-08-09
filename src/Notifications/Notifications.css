@@ -1,0 +1,81 @@
+.aside {
+  grid-area: aside;
+  z-index: 1;
+  max-width: 400px;
+  height: min(300px, 50%);
+  margin-right: 0.5rem;
+  /* border-radius: 0.5rem; */
+  background-color: rgba(255, 255, 255, 0.294);
+  border-radius: 0.5rem;
+}
+
+.notificationsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  border: 1px solid white;
+}
+
+.Notification {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.685);
+  border: 1px solid white;
+  border-radius: 0.25rem;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
+
+.Notification .NotificationContent {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #8ea6aa;
+  margin-right: 1rem;
+  /* cursor: pointer; */
+}
+
+.Notification .NotificationTime {
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #8ea6aa;
+}
+
+.Notification button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 0.25rem;
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 1px solid #b7cace;
+  font-size: 0.7rem;
+  color: #b7cace;
+  cursor: pointer;
+}
+
+.Notification button:hover {
+  filter: brightness(1.2);
+  background-color: #8ea6aa;
+  border: 1px solid #8ea6aa;
+  color: white;
+}
+
+@media (max-width: 1000px) {
+  .Notification .NotificationContent {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #8ea6aa;
+    /* cursor: pointer; */
+  }
+}

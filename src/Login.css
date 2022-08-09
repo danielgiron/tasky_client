@@ -1,0 +1,326 @@
+.Login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  gap: 2rem;
+  margin: 2rem 0rem;
+  /* background-color: white; */
+}
+.Login footer {
+  padding: 1rem;
+}
+/********************* TASKY INTRO DIV *******************/
+
+.Login .Tasky {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background-image: linear-gradient(
+    160deg,
+    #d4e3e55f 0%,
+    #bfd1d35f 50%,
+    #536a7d5f 100%
+  );
+  border-radius: 2rem;
+  filter: drop-shadow(10px 10px 15px #35383c57);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+
+  box-sizing: border-box;
+  cursor: default;
+}
+
+.Login .Tasky .Head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0rem;
+}
+
+.Login .Tasky .Head .Title {
+  font-family: "barber-fill", sans-serif;
+  font-size: 5rem;
+  color: white;
+}
+.Login .Tasky .Head .Subtitle {
+  /* font-family: Roboto, sans-serif; */
+  border-top: 1px solid white;
+  padding: 1rem;
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: white;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.Login .Tasky .Body {
+  color: #555555d5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  height: min-content;
+}
+
+.Login .Tasky .Body .Card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  height: 100%;
+  border-radius: 1rem;
+  flex-grow: 1;
+  background-image: linear-gradient(160deg, #edf2f4c4 0%, #dde6e7c4 100%);
+  font-size: 0.85rem;
+  text-align: justify;
+  word-wrap: break-word;
+  z-index: 2;
+}
+
+.Login .Tasky .Body .Card i {
+  font-size: 2.5rem;
+  color: rgb(165, 175, 184);
+  margin: 0.5rem 0rem 1.5rem 0rem;
+  filter: drop-shadow(4px 4px 5px #434c5457);
+}
+
+#topLeft {
+  position: absolute;
+  display: none;
+  top: -2px;
+  left: -2px;
+  mix-blend-mode: screen;
+  height: 90%;
+  filter: brightness(1.7);
+  border-radius: 2.3rem 0 0 2.3rem;
+}
+
+#bottomRight {
+  position: absolute;
+  display: none;
+  bottom: -2px;
+  right: -2px;
+  mix-blend-mode: multiply;
+  height: 70%;
+  filter: brightness(1) hue-rotate(20deg);
+  opacity: 0.4;
+  border-radius: 2.3rem 0 0 2.3rem;
+}
+
+/********************* LOGIN / SIGN IN FORMS *******************/
+
+.Login .formsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.837);
+  border: 2px solid white;
+  border-radius: 2rem;
+  filter: drop-shadow(0px 5px 15px #35383c57);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.Login .formsContainer .SignUpContainer,
+.Login .formsContainer .SignInContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 50%;
+  height: 80%;
+  margin: 2rem 0rem;
+}
+
+.divider {
+  content: "";
+  width: 1px;
+  height: 60%;
+  background-color: rgb(218, 218, 218);
+}
+
+.Login .formsContainer .SignUpContainer form,
+.Login .formsContainer .SignInContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 400px;
+}
+
+.formsContainer .formTitle {
+  font-size: 1.75rem;
+  color: #55ae54;
+  font-weight: 300;
+}
+
+.SignUpContainer .inputField,
+.SignInContainer .inputField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  max-width: 600px;
+  width: calc(100% - 1rem);
+  padding: 0.5rem;
+  position: relative;
+}
+
+.formsContainer .inputField label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.6rem;
+  margin-left: 0.5rem;
+  padding: 0.1rem 0.5rem;
+  background-color: white;
+  border: 1px solid rgb(228, 228, 228);
+  border-radius: 1rem;
+  color: rgb(116, 116, 116);
+  transform: translateY(3px);
+  width: min-content;
+}
+
+.formsContainer .inputField input {
+  padding: 0.9rem 0.5rem 0.75rem 0.5rem;
+  outline: none;
+  border: 1px solid rgb(228, 228, 228);
+  background-color: white;
+  font-size: 0.8rem;
+  align-self: center;
+  width: 100%;
+}
+
+.formsContainer > div button {
+  margin-top: 1.5rem;
+  width: calc(100% - 0rem);
+  height: 40px;
+  font-size: 0.8rem;
+  /* font-weight: 600; */
+  background-color: transparent;
+  border: 1px solid #55ae54;
+  color: #55ae54;
+  cursor: pointer;
+}
+
+.formsContainer > div button:hover {
+  color: white;
+  background-color: #55ae54;
+}
+
+/*///////////////////////////////////   MOBILE   ///////////////////////////////*/
+
+@media (max-width: 1000px) {
+  .Login .formsContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 60%;
+    height: auto;
+    padding: 2rem 0rem;
+    gap: 2rem;
+  }
+
+  .Login .formsContainer .SignUpContainer,
+  .Login .formsContainer .SignInContainer {
+    width: 100%;
+  }
+
+  .Login .formsContainer .SignUpContainer form,
+  .Login .formsContainer .SignInContainer form {
+    width: calc(100% - 4rem);
+    max-width: none;
+  }
+
+  .divider {
+    width: 80%;
+    height: 1px;
+  }
+
+  .formsContainer .formTitle {
+    font-size: 1.75rem;
+    color: #55ae54;
+    font-weight: 300;
+  }
+
+  .formsContainer .inputField input {
+    max-width: 600px;
+  }
+
+  .formsContainer > div button {
+    max-width: 600px;
+  }
+}
+@media (max-width: 1200px) {
+  .Login .Tasky .Body {
+    flex-direction: column;
+    align-items: center;
+    margin: 0rem;
+    gap: 0;
+  }
+
+  .Login .Tasky .Body .Card {
+    margin: 1rem 0rem;
+    padding: 1rem;
+    flex-direction: row;
+  }
+
+  .Login .Tasky .Body .Card i {
+    position: absolute;
+    left: 0.75rem;
+    top: 0;
+    /* transform: translate(0, 25%); */
+    opacity: 0.2;
+  }
+}
+
+@media (max-width: 800px) {
+  .Login {
+    height: auto;
+    z-index: 0;
+    margin: 1rem;
+  }
+
+  .Login .Tasky {
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 90%;
+    height: auto;
+    background-image: linear-gradient(
+      160deg,
+      #d4e3e55f 0%,
+      #bfd1d35f 50%,
+      #536a7d25 100%
+    );
+  }
+
+  .Login .Tasky .Head .Title {
+    font-size: 15vw;
+    margin-top: 5vw;
+  }
+  .Login .Tasky .Head .Subtitle {
+    font-size: 5vw;
+  }
+
+  .Login .formsContainer {
+    width: 90%;
+  }
+}

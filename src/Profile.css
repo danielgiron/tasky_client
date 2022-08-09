@@ -1,0 +1,40 @@
+.Profile .ProfileActions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  width: calc(100%);
+  /* background-color: rgb(52, 52, 52); */
+}
+
+.Profile .ProfileActions button {
+  width: 150px;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #fff;
+  background-color: #56a554;
+  border: 1px solid #56a554;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 50ms;
+}
+
+.Profile .ProfileActions button:hover {
+  color: #fff;
+  background-color: #56a554;
+  filter: brightness(1.2);
+}
+
+.Profile .ContactBtn.notContact {
+  background-color: transparent !important;
+  border: 1px solid #bbb !important;
+  color: #bbb !important;
+}
+
+.Profile .ContactBtn.notContact:hover {
+  border: 1px solid #56a554 !important;
+  color: #56a554 !important;
+  filter: brightness(1);
+}

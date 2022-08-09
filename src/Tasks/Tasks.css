@@ -1,0 +1,208 @@
+/*/////////////////////////   TASKS    ////////////////////*/
+
+.Tasks {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* gap: 2rem; */
+  /* background-color: blue; */
+}
+
+.TaskObj {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  background-color: white;
+  opacity: 1;
+  transition: all 200ms;
+  box-sizing: border-box;
+  border-left: 2px solid #eee;
+  border-radius: 0.25rem;
+  filter: drop-shadow(2px 0px 5px rgba(67, 73, 70, 0.122));
+}
+
+.TaskObj.completed {
+  opacity: 0.3;
+  transform: scale(0.98);
+  box-sizing: border-box;
+  border-left: 2px solid #56a552;
+}
+
+.TaskObj.alert {
+  border-left: 2px solid #f4cf5f !important;
+}
+
+.TaskObj.isLoading {
+  pointer-events: none;
+}
+
+.TaskObj.isLoading input,
+.TaskObj.isLoading .taskDescription,
+.TaskObj.isLoading i {
+  color: #dedede !important;
+}
+
+.isDeleting {
+  animation: slideout 1s;
+}
+
+.TaskObj .TaskUI {
+  display: grid;
+  grid-template-areas: "infoBtn taskDescription taskActions";
+  grid-template-columns: 40px 1fr 80px;
+  align-items: center;
+}
+
+.TaskObj .taskDescription {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.TaskObj .taskDescription .alertIcon {
+  color: #f4cf5f;
+}
+
+.TaskObj .taskActions {
+  height: 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.TaskObj button {
+  /* margin: 0rem 0.25rem; */
+  background-color: transparent;
+  height: 25px;
+  cursor: pointer;
+  overflow: hidden;
+  /* transition: all 200ms; */
+}
+
+.TaskObj .completeBtn {
+  border: none;
+  color: #555;
+}
+
+.TaskObj .completeBtn:hover {
+  color: #56a552;
+  /* transform: rotate(-15deg); */
+}
+
+.TaskObj.completed .completeBtn {
+  color: #56a552;
+}
+
+.TaskObj.completed .completeBtn:hover {
+  color: #bbb;
+}
+
+.TaskObj .deleteBtn {
+  color: rgb(204, 79, 79);
+
+  border: none;
+  width: 25px;
+}
+
+.TaskObj .deleteBtn:hover {
+  filter: brightness(1.2);
+}
+
+.TaskObj .infoBtn {
+  border: none;
+  background-color: transparent;
+  color: #ddd;
+  grid-area: infoBtn;
+}
+
+.TaskObj .infoBtn:hover {
+  color: #bbb;
+}
+
+.TaskObj.alert .infoBtn {
+  border: none;
+  background-color: transparent;
+  color: #f4cf5f;
+  grid-area: infoBtn;
+}
+
+.TaskObj .MessagePanel {
+  margin: 0.5rem 0.25rem 0.25rem 0.25rem;
+  padding: 0.5rem 0.75rem;
+  line-height: 1.5;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  font-size: 0.8rem;
+  color: #555;
+  filter: drop-shadow(2px 0px 5px rgba(67, 73, 70, 0.081));
+  font-style: italic;
+}
+.TaskObj .MessagePanel span.taskMessage {
+  text-transform: none;
+  background-color: transparent;
+}
+
+.TaskObj .MessagePanel span.whitespace {
+  content: " ";
+  margin: 0rem 0.25rem;
+}
+
+.TaskObj .InfoPanel {
+  margin: 0.5rem 0.25rem 0.25rem 0.25rem;
+  padding: 0.5rem 0.75rem;
+  line-height: 2;
+
+  background-color: #eee;
+  border-radius: 0.5rem !important;
+  font-size: 0.8rem;
+  color: #555;
+  filter: drop-shadow(2px 0px 5px rgba(67, 73, 70, 0.081));
+
+  overflow: wrap;
+  text-overflow: ellipsis;
+}
+
+.TaskObj .InfoPanel span {
+  padding: 0.15rem 0.25rem;
+  border-radius: 0.25rem;
+  margin: 0rem 0.2rem;
+  background-color: #dfdfdf;
+  text-transform: capitalize;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+}
+
+.TaskObj .InfoPanel span.alert {
+  background-color: #f4cf5f;
+}
+
+.TaskObj .MessagePanel.isHidden,
+.TaskObj .InfoPanel.isHidden {
+  display: none !important;
+}
+
+@keyframes slideout {
+  0% {
+    transform: translate(0px, 0%);
+  }
+  100% {
+    transform: translate(5%, 0%);
+    opacity: 0;
+  }
+}
+
+/*///////////////////////////////////   MOBILE   ///////////////////////////////*/
+
+@media (max-width: 1000px) {
+  .TaskObj .TaskUI {
+    display: grid;
+    grid-template-areas: "infoBtn taskDescription taskActions";
+    grid-template-columns: 30px 1fr 80px;
+    align-items: center;
+  }
+
+  .TaskObj .taskDescription {
+    font-size: 0.8rem;
+  }
+}
