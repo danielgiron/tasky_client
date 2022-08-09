@@ -76,6 +76,11 @@
   height: 25px;
   cursor: pointer;
   overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   /* transition: all 200ms; */
 }
 
