@@ -12,13 +12,13 @@ function Messages(props) {
   const [threads, setThreads] = useState(null);
   const navigate = useNavigate();
 
+  // Query backend for all user's message threads
   useEffect(() => {
     const endpoint = `${backendBaseURL}/threads`;
     const body = { userID: userData._id };
     axios
       .post(endpoint, body)
       .then((res) => {
-        // console.log(res.data);
         setThreads(res.data);
       })
       .catch((e) => {
@@ -26,10 +26,15 @@ function Messages(props) {
       });
   }, [userData]);
 
+  // If threads exist and successfully received,
+  // generate HTML elements for each thread to be displayed
+  // in render function within .Threads container
   const threadDivs = [];
-
   if (threads) {
     threads.map((thread) => {
+      // Extract parties in users  thread to display info in HTML element.
+      // Include preview of thread using last pushed message in thread
+      // On button click, navigate to Message Console using thread id.
       const parties = thread.parties;
 
       threadDivs.push(
